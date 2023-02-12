@@ -54,5 +54,41 @@ public class sampleAuto extends LinearOpMode {
         frontLeft.setPower(0);
         backRight.setPower(0);
         backLeft.setPower(0);
+
+        /**
+         * This block of code is an example of turning inplace to the right
+         *      - turning inplace: the center point of the turn is the center of the robot
+         * It will turn right at 45% power for 2 seconds
+         */
+
+        frontRight.setPower(-0.45); // The right side of the robot goes backwards
+        backRight.setPower(-0.45);
+        frontLeft.setPower(0.45); // The left side of the robot goes forward at the same power
+        backLeft.setPower(0.45); // which results in the robot turning inplace
+
+        sleep(2000);
+
+        frontRight.setPower(0);
+        frontLeft.setPower(0);
+        backRight.setPower(0);
+        backLeft.setPower(0);
+
+        /**
+         * This block of code is an example of turning left about the left side of the robot
+         *      - The center point of the turn will be the left side of the robot
+         * It will turn left at 60% power for 5 seconds
+         */
+
+        frontRight.setPower(0.60); // The right side goes forward
+        backRight.setPower(0.60);
+        frontLeft.setPower(0); // The left side stays still
+        backLeft.setPower(0); // which results in a wider turn left
+
+        sleep(5000);
+
+        frontRight.setPower(0);
+        frontLeft.setPower(0);
+        backRight.setPower(0);
+        backLeft.setPower(0);
     }
 }
