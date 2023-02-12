@@ -3,11 +3,10 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(group="samples", name = "Auto code")
-public class sampleAuto extends LinearOpMode {
+public class basicMotorServoMovement extends LinearOpMode {
     /**
      * This is where you declare all of your motors and servos
      * Here we have just our wheels and one servo
@@ -90,5 +89,41 @@ public class sampleAuto extends LinearOpMode {
         frontLeft.setPower(0);
         backRight.setPower(0);
         backLeft.setPower(0);
+
+        /**
+         * This block of code is an example of strafing
+         *      - For a better explanation: https://gm0.org/en/latest/docs/software/tutorials/mecanum-drive.html
+         * This will move to the right at 80 % power for 7 seconds
+         */
+
+        frontRight.setPower(-0.80); // By having 2 wheels diagonal move the same direction
+        backLeft.setPower(-0.80); // and the 2 others moving in the opposite direction
+        backRight.setPower(0.80); // the robot will strafe
+        frontLeft.setPower(0.80);
+
+        sleep(7000);
+
+        frontRight.setPower(0);
+        frontLeft.setPower(0);
+        backRight.setPower(0);
+        backLeft.setPower(0);
+
+        /**
+         * Servos are similar to motors but they move much slower and are programmed differently
+         * A common place to see servos are in claws
+         *
+         * Pretend for this example that the closed position is 0.95 and the open position is 0.05
+         * The range of positions in a servo is 0-1
+         */
+
+        // This example closes the claw
+        servo1.setPosition(0.95);
+
+        // This example opens the claw
+        servo1.setPosition(0.05);
+
+        // Say you want to grab a bigger thing and so you want it too not close as much
+        servo1.setPosition(0.65);
+
     }
 }
